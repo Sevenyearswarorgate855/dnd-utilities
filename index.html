@@ -21,25 +21,35 @@
 
   <main class="page">
     <section class="hero reveal reveal--visible">
-      <header class="topbar" aria-label="Cabecera">
+      <header class="topbar" id="topbar" aria-label="Cabecera">
         <div class="brand">
           <span class="brand__mark">20</span>
           <div>
             <p class="brand__name">D20 Tavern</p>
-            <p class="brand__meta">Mobile-first fantasy utility</p>
+            <p class="brand__meta" data-i18n="brandMeta">Mobile-first fantasy utility</p>
           </div>
         </div>
-        <span class="topbar__badge">Telefono primero</span>
+
+        <div class="topbar__actions">
+          <span class="topbar__badge" data-i18n="topbarBadge">Telefono primero</span>
+
+          <label class="language-picker" for="languageSelect">
+            <span class="sr-only" id="languageLabel">Idioma</span>
+            <select id="languageSelect" class="language-select" aria-labelledby="languageLabel">
+              <option value="es">ES</option>
+              <option value="en">EN</option>
+              <option value="pt-BR">PT-BR</option>
+            </select>
+          </label>
+        </div>
       </header>
 
       <div class="hero__stack">
         <div class="hero__copy">
-          <p class="eyebrow">D&D / Baldur's Gate / Session Tools</p>
-          <h1>Un d20 rapido, claro y comodo desde el movil.</h1>
-          <p class="hero__lead">
-            Pensado para usar con una mano: tirada instantanea, duelo entre
-            jugadores y resultados faciles de leer en cualquier momento de la
-            partida.
+          <p class="eyebrow" data-i18n="heroEyebrow">D&D / Baldur's Gate / Session Tools</p>
+          <h1 data-i18n="heroTitle">Un d20 rapido, claro y comodo desde el movil.</h1>
+          <p class="hero__lead" data-i18n="heroLead">
+            Pensado para usar con una mano: tirada instantanea, duelo entre jugadores y resultados faciles de leer en cualquier momento de la partida.
           </p>
         </div>
 
@@ -53,26 +63,26 @@
         </div>
 
         <div class="hero__actions">
-          <button class="button button--primary" id="heroRoll" type="button">
+          <button class="button button--primary" id="heroRoll" type="button" data-i18n="heroRoll">
             Tirar d20 ahora
           </button>
-          <button class="button button--secondary" id="heroGroup" type="button">
+          <button class="button button--secondary" id="heroGroup" type="button" data-i18n="heroGroup">
             Ir al duelo
           </button>
         </div>
 
         <div class="hero__facts">
           <div class="fact">
-            <span class="fact__label">Rapido</span>
-            <strong>Toques grandes y lectura inmediata</strong>
+            <span class="fact__label" data-i18n="fact1Label">Rapido</span>
+            <strong data-i18n="fact1Text">Toques grandes y lectura inmediata</strong>
           </div>
           <div class="fact">
-            <span class="fact__label">Listo</span>
-            <strong>Criticos, pifias y empates visibles</strong>
+            <span class="fact__label" data-i18n="fact2Label">Listo</span>
+            <strong data-i18n="fact2Text">Criticos, pifias y empates visibles</strong>
           </div>
           <div class="fact">
-            <span class="fact__label">Escalable</span>
-            <strong>Base para mas herramientas de mesa</strong>
+            <span class="fact__label" data-i18n="fact3Label">Escalable</span>
+            <strong data-i18n="fact3Text">Base para mas herramientas de mesa</strong>
           </div>
         </div>
       </div>
@@ -80,11 +90,10 @@
 
     <section class="arena reveal" id="arena">
       <div class="section-heading">
-        <p class="eyebrow eyebrow--soft">Live utility</p>
-        <h2>Altar de tiradas</h2>
-        <p class="section-copy">
-          Lo principal va primero: tirada individual arriba, duelo de grupo
-          debajo y resultados compactos para no perder tiempo durante la sesion.
+        <p class="eyebrow eyebrow--soft" data-i18n="arenaEyebrow">Live utility</p>
+        <h2 data-i18n="arenaTitle">Altar de tiradas</h2>
+        <p class="section-copy" data-i18n="arenaCopy">
+          Lo principal va primero: tirada individual arriba, duelo de grupo debajo y resultados compactos para no perder tiempo durante la sesion.
         </p>
       </div>
 
@@ -92,10 +101,10 @@
         <article class="panel panel--solo">
           <div class="panel__header">
             <div>
-              <p class="eyebrow eyebrow--soft">Solo roll</p>
-              <h3>1d20 instantaneo</h3>
+              <p class="eyebrow eyebrow--soft" data-i18n="soloEyebrow">Solo roll</p>
+              <h3 data-i18n="soloTitle">1d20 instantaneo</h3>
             </div>
-            <span class="panel-badge">Uso rapido</span>
+            <span class="panel-badge" data-i18n="soloBadge">Uso rapido</span>
           </div>
 
           <div class="solo-panel">
@@ -107,10 +116,10 @@
 
             <div class="solo-panel__content">
               <div class="button-row">
-                <button class="button button--primary" id="rollSolo" type="button">
+                <button class="button button--primary" id="rollSolo" type="button" data-i18n="rollSolo">
                   Tirar 1d20
                 </button>
-                <button class="button button--ghost" id="resetAll" type="button">
+                <button class="button button--ghost" id="resetAll" type="button" data-i18n="resetAll">
                   Reiniciar
                 </button>
               </div>
@@ -125,28 +134,28 @@
         <article class="panel panel--duel">
           <div class="panel__header">
             <div>
-              <p class="eyebrow eyebrow--soft">Party clash</p>
-              <h3>Quien saque mas, gana</h3>
+              <p class="eyebrow eyebrow--soft" data-i18n="duelEyebrow">Party clash</p>
+              <h3 data-i18n="duelTitle">Quien saque mas, gana</h3>
             </div>
-            <span class="panel-badge">Empate automatico</span>
+            <span class="panel-badge" data-i18n="duelBadge">Empate automatico</span>
           </div>
 
           <div class="players" id="players">
             <label class="player-row">
-              <span>Jugador 1</span>
-              <input type="text" value="Jugador 1" />
+              <span data-player-label data-player-index="1">Jugador 1</span>
+              <input type="text" data-player-input data-player-index="1" placeholder="Nombre de Jugador 1" />
             </label>
             <label class="player-row">
-              <span>Jugador 2</span>
-              <input type="text" value="Jugador 2" />
+              <span data-player-label data-player-index="2">Jugador 2</span>
+              <input type="text" data-player-input data-player-index="2" placeholder="Nombre de Jugador 2" />
             </label>
           </div>
 
           <div class="button-row">
-            <button class="button button--ghost" id="addPlayer" type="button">
+            <button class="button button--ghost" id="addPlayer" type="button" data-i18n="addPlayer">
               Anadir jugador
             </button>
-            <button class="button button--primary" id="rollAll" type="button">
+            <button class="button button--primary" id="rollAll" type="button" data-i18n="rollAll">
               Tirar para todos
             </button>
           </div>
@@ -160,9 +169,9 @@
 
     <section class="chronicle reveal">
       <div class="section-heading">
-        <p class="eyebrow eyebrow--soft">Session log</p>
-        <h2>Cronica de tiradas</h2>
-        <p class="section-copy">
+        <p class="eyebrow eyebrow--soft" data-i18n="historyEyebrow">Session log</p>
+        <h2 data-i18n="historyTitle">Cronica de tiradas</h2>
+        <p class="section-copy" data-i18n="historyCopy">
           Historial corto y limpio para consultar rapido quien gano cada ronda.
         </p>
       </div>
@@ -176,48 +185,47 @@
 
     <section class="arsenal reveal">
       <div class="section-heading">
-        <p class="eyebrow eyebrow--soft">Roadmap</p>
-        <h2>Lo siguiente</h2>
-        <p class="section-copy">
-          Cuando esta base ya te guste en movil, podemos seguir con el resto del
-          arsenal.
+        <p class="eyebrow eyebrow--soft" data-i18n="roadmapEyebrow">Roadmap</p>
+        <h2 data-i18n="roadmapTitle">Lo siguiente</h2>
+        <p class="section-copy" data-i18n="roadmapCopy">
+          Cuando esta base ya te guste en movil, podemos seguir con el resto del arsenal.
         </p>
       </div>
 
-      <div class="arsenal__list" aria-label="Utilidades futuras">
+      <div class="arsenal__list" id="roadmapList" aria-label="Utilidades futuras">
         <div class="arsenal-item">
           <span class="arsenal-item__index">01</span>
           <div>
-            <h3>Mas dados</h3>
-            <p>d4, d6, d8, d10, d12 y d100 con el mismo sistema visual.</p>
+            <h3 data-i18n="roadmap1Title">Mas dados</h3>
+            <p data-i18n="roadmap1Copy">d4, d6, d8, d10, d12 y d100 con el mismo sistema visual.</p>
           </div>
         </div>
         <div class="arsenal-item">
           <span class="arsenal-item__index">02</span>
           <div>
-            <h3>Iniciativa</h3>
-            <p>Orden de combate rapido para party, enemigos y NPCs.</p>
+            <h3 data-i18n="roadmap2Title">Iniciativa</h3>
+            <p data-i18n="roadmap2Copy">Orden de combate rapido para party, enemigos y NPCs.</p>
           </div>
         </div>
         <div class="arsenal-item">
           <span class="arsenal-item__index">03</span>
           <div>
-            <h3>Marcadores</h3>
-            <p>Vida, turnos y efectos temporales con controles tactiles.</p>
+            <h3 data-i18n="roadmap3Title">Marcadores</h3>
+            <p data-i18n="roadmap3Copy">Vida, turnos y efectos temporales con controles tactiles.</p>
           </div>
         </div>
       </div>
     </section>
   </main>
 
-  <nav class="mobile-dock" aria-label="Acciones rapidas">
-    <button class="button button--ghost mobile-dock__button" id="jumpToArena" type="button">
+  <nav class="mobile-dock" id="mobileDock" aria-label="Acciones rapidas">
+    <button class="button button--ghost mobile-dock__button" id="jumpToArena" type="button" data-i18n="dockArena">
       Abrir altar
     </button>
-    <button class="button button--primary mobile-dock__button" id="dockRoll" type="button">
+    <button class="button button--primary mobile-dock__button" id="dockRoll" type="button" data-i18n="dockRoll">
       Tirar d20
     </button>
-    <button class="button button--secondary mobile-dock__button" id="dockGroup" type="button">
+    <button class="button button--secondary mobile-dock__button" id="dockGroup" type="button" data-i18n="dockGroup">
       Duelo
     </button>
   </nav>
