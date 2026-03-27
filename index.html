@@ -26,59 +26,54 @@
           <span class="brand__mark">20</span>
           <div>
             <p class="brand__name">D20 Tavern</p>
-            <p class="brand__meta">Fantasy utilities for quick table calls</p>
+            <p class="brand__meta">Mobile-first fantasy utility</p>
           </div>
         </div>
-
-        <button class="button button--ghost" id="jumpToArena" type="button">
-          Ir al altar de tiradas
-        </button>
+        <span class="topbar__badge">Telefono primero</span>
       </header>
 
-      <div class="hero__grid">
+      <div class="hero__stack">
         <div class="hero__copy">
-          <p class="eyebrow">D&D / Baldur's Gate / Fantasy Sessions</p>
-          <h1>Decisiones rapidas, con presencia de ritual.</h1>
+          <p class="eyebrow">D&D / Baldur's Gate / Session Tools</p>
+          <h1>Un d20 rapido, claro y comodo desde el movil.</h1>
           <p class="hero__lead">
-            Una interfaz para mesa con energia de fantasia moderna: tira un d20,
-            resuelve desempates en segundos y deja lista la base para muchas mas
-            utilidades.
+            Pensado para usar con una mano: tirada instantanea, duelo entre
+            jugadores y resultados faciles de leer en cualquier momento de la
+            partida.
           </p>
-
-          <div class="hero__actions">
-            <button class="button button--primary" id="heroRoll" type="button">
-              Tirar d20 ahora
-            </button>
-            <button class="button button--secondary" id="heroGroup" type="button">
-              Resolver duelo
-            </button>
-          </div>
-
-          <div class="hero__facts">
-            <div class="fact">
-              <span class="fact__label">Enfoque</span>
-              <strong>Desempates y decisiones instantaneas</strong>
-            </div>
-            <div class="fact">
-              <span class="fact__label">Primera utilidad</span>
-              <strong>d20 con modo individual y grupo</strong>
-            </div>
-            <div class="fact">
-              <span class="fact__label">Siguiente paso</span>
-              <strong>Mas dados, iniciativa y herramientas de mesa</strong>
-            </div>
-          </div>
         </div>
 
         <div class="hero__visual" aria-hidden="true">
-          <div class="sigil-ring sigil-ring--outer"></div>
-          <div class="sigil-ring sigil-ring--inner"></div>
+          <div class="sigil sigil--outer"></div>
+          <div class="sigil sigil--inner"></div>
           <div class="hero-die-shell">
             <div class="hero-die" id="soloDie">20</div>
           </div>
           <div class="hero-glow"></div>
-          <div class="hero-orbit hero-orbit--one"></div>
-          <div class="hero-orbit hero-orbit--two"></div>
+        </div>
+
+        <div class="hero__actions">
+          <button class="button button--primary" id="heroRoll" type="button">
+            Tirar d20 ahora
+          </button>
+          <button class="button button--secondary" id="heroGroup" type="button">
+            Ir al duelo
+          </button>
+        </div>
+
+        <div class="hero__facts">
+          <div class="fact">
+            <span class="fact__label">Rapido</span>
+            <strong>Toques grandes y lectura inmediata</strong>
+          </div>
+          <div class="fact">
+            <span class="fact__label">Listo</span>
+            <strong>Criticos, pifias y empates visibles</strong>
+          </div>
+          <div class="fact">
+            <span class="fact__label">Escalable</span>
+            <strong>Base para mas herramientas de mesa</strong>
+          </div>
         </div>
       </div>
     </section>
@@ -88,8 +83,8 @@
         <p class="eyebrow eyebrow--soft">Live utility</p>
         <h2>Altar de tiradas</h2>
         <p class="section-copy">
-          Dos modos claros, una sola lectura: tirada individual para decisiones
-          rapidas y duelo de grupo para ver quien se lleva la accion.
+          Lo principal va primero: tirada individual arriba, duelo de grupo
+          debajo y resultados compactos para no perder tiempo durante la sesion.
         </p>
       </div>
 
@@ -100,7 +95,7 @@
               <p class="eyebrow eyebrow--soft">Solo roll</p>
               <h3>1d20 instantaneo</h3>
             </div>
-            <span class="panel-badge">Criticos y pifias</span>
+            <span class="panel-badge">Uso rapido</span>
           </div>
 
           <div class="solo-panel">
@@ -133,7 +128,7 @@
               <p class="eyebrow eyebrow--soft">Party clash</p>
               <h3>Quien saque mas, gana</h3>
             </div>
-            <span class="panel-badge">Empate detectado</span>
+            <span class="panel-badge">Empate automatico</span>
           </div>
 
           <div class="players" id="players">
@@ -163,13 +158,29 @@
       </div>
     </section>
 
+    <section class="chronicle reveal">
+      <div class="section-heading">
+        <p class="eyebrow eyebrow--soft">Session log</p>
+        <h2>Cronica de tiradas</h2>
+        <p class="section-copy">
+          Historial corto y limpio para consultar rapido quien gano cada ronda.
+        </p>
+      </div>
+
+      <div class="history-shell">
+        <div class="history" id="history">
+          <p class="history__empty">Todavia no hay tiradas registradas.</p>
+        </div>
+      </div>
+    </section>
+
     <section class="arsenal reveal">
       <div class="section-heading">
         <p class="eyebrow eyebrow--soft">Roadmap</p>
-        <h2>Arsenal en camino</h2>
+        <h2>Lo siguiente</h2>
         <p class="section-copy">
-          La base ya esta montada para crecer hacia una pequena suite de
-          utilidades de mesa y decision.
+          Cuando esta base ya te guste en movil, podemos seguir con el resto del
+          arsenal.
         </p>
       </div>
 
@@ -178,7 +189,7 @@
           <span class="arsenal-item__index">01</span>
           <div>
             <h3>Mas dados</h3>
-            <p>d4, d6, d8, d10, d12 y d100 con la misma interfaz.</p>
+            <p>d4, d6, d8, d10, d12 y d100 con el mismo sistema visual.</p>
           </div>
         </div>
         <div class="arsenal-item">
@@ -192,35 +203,24 @@
           <span class="arsenal-item__index">03</span>
           <div>
             <h3>Marcadores</h3>
-            <p>Vida, turnos, efectos temporales y contadores utiles.</p>
+            <p>Vida, turnos y efectos temporales con controles tactiles.</p>
           </div>
-        </div>
-        <div class="arsenal-item">
-          <span class="arsenal-item__index">04</span>
-          <div>
-            <h3>Decisiones aleatorias</h3>
-            <p>Selector rapido para eventos, rutas y elecciones de grupo.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="chronicle reveal">
-      <div class="section-heading">
-        <p class="eyebrow eyebrow--soft">Session log</p>
-        <h2>Cronica de tiradas</h2>
-        <p class="section-copy">
-          Un historial corto y legible para recordar quien gano cada ronda.
-        </p>
-      </div>
-
-      <div class="history-shell">
-        <div class="history" id="history">
-          <p class="history__empty">Todavia no hay tiradas registradas.</p>
         </div>
       </div>
     </section>
   </main>
+
+  <nav class="mobile-dock" aria-label="Acciones rapidas">
+    <button class="button button--ghost mobile-dock__button" id="jumpToArena" type="button">
+      Abrir altar
+    </button>
+    <button class="button button--primary mobile-dock__button" id="dockRoll" type="button">
+      Tirar d20
+    </button>
+    <button class="button button--secondary mobile-dock__button" id="dockGroup" type="button">
+      Duelo
+    </button>
+  </nav>
 
   <script src="app.js"></script>
 </body>

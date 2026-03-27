@@ -8,6 +8,8 @@ const resetAllButton = document.getElementById("resetAll");
 const jumpToArenaButton = document.getElementById("jumpToArena");
 const heroRollButton = document.getElementById("heroRoll");
 const heroGroupButton = document.getElementById("heroGroup");
+const dockRollButton = document.getElementById("dockRoll");
+const dockGroupButton = document.getElementById("dockGroup");
 const playersContainer = document.getElementById("players");
 const groupResult = document.getElementById("groupResult");
 const historyContainer = document.getElementById("history");
@@ -40,7 +42,7 @@ function animateDie(result) {
 
     window.setTimeout(() => {
       die.textContent = String(result);
-    }, 150 + index * 20);
+    }, 140 + index * 20);
   });
 
   setDieState(result);
@@ -72,11 +74,11 @@ function addHistory(entry) {
 
 function getSoloMessage(result) {
   if (result === 20) {
-    return "Has sacado 20. Critico limpio. La mesa ya tiene respuesta.";
+    return "Has sacado 20. Critico limpio. Ya puedes decidir.";
   }
 
   if (result === 1) {
-    return "Has sacado 1. Pifia total. El caos decide por ti.";
+    return "Has sacado 1. Pifia total. El caos habla primero.";
   }
 
   if (result >= 16) {
@@ -84,10 +86,10 @@ function getSoloMessage(result) {
   }
 
   if (result <= 5) {
-    return `Has sacado ${result}. No es el dia del destino.`;
+    return `Has sacado ${result}. Resultado flojo para este momento.`;
   }
 
-  return `Has sacado ${result}. Resultado listo para decidir.`;
+  return `Has sacado ${result}. Resultado listo para comparar.`;
 }
 
 function createPlayerInput(index) {
@@ -151,7 +153,7 @@ function revealOnScroll() {
       });
     },
     {
-      threshold: 0.18,
+      threshold: 0.12,
     }
   );
 
@@ -162,8 +164,13 @@ function revealOnScroll() {
   });
 }
 
+function goToArena() {
+  arenaSection.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
 rollSoloButton.addEventListener("click", runSoloRoll);
 heroRollButton.addEventListener("click", runSoloRoll);
+dockRollButton.addEventListener("click", runSoloRoll);
 
 addPlayerButton.addEventListener("click", () => {
   const nextIndex = playersContainer.querySelectorAll("input").length + 1;
@@ -216,15 +223,13 @@ resetAllButton.addEventListener("click", () => {
   renderHistory();
 });
 
-jumpToArenaButton.addEventListener("click", () => {
-  arenaSection.scrollIntoView({ behavior: "smooth", block: "start" });
-});
-
-heroGroupButton.addEventListener("click", () => {
-  arenaSection.scrollIntoView({ behavior: "smooth", block: "start" });
+jumpToArenaButton.addEventListener("click", goToArena);
+heroGroupButton.addEventListener("click", goToArena);
+dockGroupButton.addEventListener("click", () => {
+  goToArena();
   window.setTimeout(() => {
     rollAllButton.focus();
-  }, 400);
+  }, 320);
 });
 
 renderHistory();
