@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>D20 Tavern</title>
+  <meta
+    name="description"
+    content="Utilidades para Dungeons & Dragons, Baldur's Gate y juegos de fantasia. Incluye tirada d20 individual y comparacion entre varios jugadores."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Instrument+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="layout">
+    <section class="hero">
+      <div class="hero__content">
+        <p class="eyebrow">D&D / Baldur's Gate Utilities</p>
+        <h1>D20 Tavern</h1>
+        <p class="hero__lead">
+          Una mesa digital para resolver decisiones rapidas: tira un d20,
+          compara resultados y deja que la suerte elija al ganador.
+        </p>
+
+        <div class="solo-roll">
+          <div class="die" id="soloDie" aria-live="polite">20</div>
+
+          <div class="solo-roll__actions">
+            <div class="button-row">
+              <button class="button button--primary" id="rollSolo" type="button">
+                Tirar 1d20
+              </button>
+              <button class="button button--ghost" id="resetAll" type="button">
+                Reiniciar
+              </button>
+            </div>
+            <p class="status-message" id="soloMessage">
+              Pulsa para hacer una tirada individual.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero__details">
+        <div class="detail-block">
+          <span class="detail-label">Preparado para</span>
+          <strong>Desempates rapidos</strong>
+        </div>
+        <div class="detail-block">
+          <span class="detail-label">Ideal para</span>
+          <strong>DnD, Baldur's Gate y sesiones casuales</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel stack">
+      <div>
+        <p class="eyebrow eyebrow--soft">Modo grupo</p>
+        <h2>Quien saque mas, gana</h2>
+        <p class="panel__lead">
+          Anade jugadores, tira para todos y resuelve al instante si hay
+          ganador claro o si toca desempatar.
+        </p>
+      </div>
+
+      <div class="players" id="players">
+        <label class="player-row">
+          <span>Jugador 1</span>
+          <input type="text" value="Jugador 1" />
+        </label>
+        <label class="player-row">
+          <span>Jugador 2</span>
+          <input type="text" value="Jugador 2" />
+        </label>
+      </div>
+
+      <div class="button-row">
+        <button class="button button--ghost" id="addPlayer" type="button">
+          Anadir jugador
+        </button>
+        <button class="button button--primary" id="rollAll" type="button">
+          Tirar para todos
+        </button>
+      </div>
+
+      <div class="result-panel" id="groupResult" aria-live="polite">
+        Esperando una tirada grupal.
+      </div>
+    </section>
+
+    <section class="panel stack">
+      <div>
+        <p class="eyebrow eyebrow--soft">Historial</p>
+        <h2>Ultimas decisiones</h2>
+        <p class="panel__lead">
+          Asi puedes revisar rapidamente quien gano cada ronda.
+        </p>
+      </div>
+      <div class="history" id="history">
+        <p class="history__empty">Todavia no hay tiradas registradas.</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
