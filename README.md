@@ -9,7 +9,7 @@
 
 Mobile-first fantasy utility for Dungeons & Dragons, Baldur's Gate, and other tabletop or RPG sessions.
 
-## Why It Stands Out
+## Highlights
 
 - Built mobile-first for real session use, not just desktop demos
 - Fast dice rolling with multiplayer comparison
@@ -110,18 +110,7 @@ Good first contributions:
 - Add more dice modes
 - Improve accessibility and keyboard support
 - Add animations for multiplayer results
-- Prepare a GitHub Pages deployment workflow
 - Create screenshots or GIFs for the README
-
-## Public Repo Growth Ideas
-
-These changes help the repo feel more alive and more shareable:
-
-- Visual banner at the top of the README
-- Clear badges for stars, forks, issues, and license
-- Contributing guide and pull request template
-- Issue templates for bug reports and feature requests
-- Explicit open source license
 
 ## License
 
