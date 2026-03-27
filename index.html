@@ -6,103 +6,218 @@
   <title>D20 Tavern</title>
   <meta
     name="description"
-    content="Utilidades para Dungeons & Dragons, Baldur's Gate y juegos de fantasia. Incluye tirada d20 individual y comparacion entre varios jugadores."
+    content="Utilidades para Dungeons and Dragons, Baldur's Gate y juegos de fantasia. Incluye tirada d20 individual y comparacion entre varios jugadores."
   />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Instrument+Sans:wght@400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Manrope:wght@400;500;600;700;800&display=swap"
     rel="stylesheet"
   />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <main class="layout">
-    <section class="hero">
-      <div class="hero__content">
-        <p class="eyebrow">D&D / Baldur's Gate Utilities</p>
-        <h1>D20 Tavern</h1>
-        <p class="hero__lead">
-          Una mesa digital para resolver decisiones rapidas: tira un d20,
-          compara resultados y deja que la suerte elija al ganador.
-        </p>
+  <div class="bg-noise" aria-hidden="true"></div>
 
-        <div class="solo-roll">
-          <div class="die" id="soloDie" aria-live="polite">20</div>
+  <main class="page">
+    <section class="hero reveal reveal--visible">
+      <header class="topbar" aria-label="Cabecera">
+        <div class="brand">
+          <span class="brand__mark">20</span>
+          <div>
+            <p class="brand__name">D20 Tavern</p>
+            <p class="brand__meta">Fantasy utilities for quick table calls</p>
+          </div>
+        </div>
 
-          <div class="solo-roll__actions">
-            <div class="button-row">
-              <button class="button button--primary" id="rollSolo" type="button">
-                Tirar 1d20
-              </button>
-              <button class="button button--ghost" id="resetAll" type="button">
-                Reiniciar
-              </button>
+        <button class="button button--ghost" id="jumpToArena" type="button">
+          Ir al altar de tiradas
+        </button>
+      </header>
+
+      <div class="hero__grid">
+        <div class="hero__copy">
+          <p class="eyebrow">D&D / Baldur's Gate / Fantasy Sessions</p>
+          <h1>Decisiones rapidas, con presencia de ritual.</h1>
+          <p class="hero__lead">
+            Una interfaz para mesa con energia de fantasia moderna: tira un d20,
+            resuelve desempates en segundos y deja lista la base para muchas mas
+            utilidades.
+          </p>
+
+          <div class="hero__actions">
+            <button class="button button--primary" id="heroRoll" type="button">
+              Tirar d20 ahora
+            </button>
+            <button class="button button--secondary" id="heroGroup" type="button">
+              Resolver duelo
+            </button>
+          </div>
+
+          <div class="hero__facts">
+            <div class="fact">
+              <span class="fact__label">Enfoque</span>
+              <strong>Desempates y decisiones instantaneas</strong>
             </div>
-            <p class="status-message" id="soloMessage">
-              Pulsa para hacer una tirada individual.
-            </p>
+            <div class="fact">
+              <span class="fact__label">Primera utilidad</span>
+              <strong>d20 con modo individual y grupo</strong>
+            </div>
+            <div class="fact">
+              <span class="fact__label">Siguiente paso</span>
+              <strong>Mas dados, iniciativa y herramientas de mesa</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero__visual" aria-hidden="true">
+          <div class="sigil-ring sigil-ring--outer"></div>
+          <div class="sigil-ring sigil-ring--inner"></div>
+          <div class="hero-die-shell">
+            <div class="hero-die" id="soloDie">20</div>
+          </div>
+          <div class="hero-glow"></div>
+          <div class="hero-orbit hero-orbit--one"></div>
+          <div class="hero-orbit hero-orbit--two"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="arena reveal" id="arena">
+      <div class="section-heading">
+        <p class="eyebrow eyebrow--soft">Live utility</p>
+        <h2>Altar de tiradas</h2>
+        <p class="section-copy">
+          Dos modos claros, una sola lectura: tirada individual para decisiones
+          rapidas y duelo de grupo para ver quien se lleva la accion.
+        </p>
+      </div>
+
+      <div class="arena__grid">
+        <article class="panel panel--solo">
+          <div class="panel__header">
+            <div>
+              <p class="eyebrow eyebrow--soft">Solo roll</p>
+              <h3>1d20 instantaneo</h3>
+            </div>
+            <span class="panel-badge">Criticos y pifias</span>
+          </div>
+
+          <div class="solo-panel">
+            <div class="die-stage">
+              <div class="die-frame">
+                <div class="die" id="soloDiePanel" aria-hidden="true">20</div>
+              </div>
+            </div>
+
+            <div class="solo-panel__content">
+              <div class="button-row">
+                <button class="button button--primary" id="rollSolo" type="button">
+                  Tirar 1d20
+                </button>
+                <button class="button button--ghost" id="resetAll" type="button">
+                  Reiniciar
+                </button>
+              </div>
+
+              <p class="status-message" id="soloMessage">
+                Pulsa para hacer una tirada individual.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel panel--duel">
+          <div class="panel__header">
+            <div>
+              <p class="eyebrow eyebrow--soft">Party clash</p>
+              <h3>Quien saque mas, gana</h3>
+            </div>
+            <span class="panel-badge">Empate detectado</span>
+          </div>
+
+          <div class="players" id="players">
+            <label class="player-row">
+              <span>Jugador 1</span>
+              <input type="text" value="Jugador 1" />
+            </label>
+            <label class="player-row">
+              <span>Jugador 2</span>
+              <input type="text" value="Jugador 2" />
+            </label>
+          </div>
+
+          <div class="button-row">
+            <button class="button button--ghost" id="addPlayer" type="button">
+              Anadir jugador
+            </button>
+            <button class="button button--primary" id="rollAll" type="button">
+              Tirar para todos
+            </button>
+          </div>
+
+          <div class="result-panel" id="groupResult" aria-live="polite">
+            <p class="result-panel__intro">Esperando una tirada grupal.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="arsenal reveal">
+      <div class="section-heading">
+        <p class="eyebrow eyebrow--soft">Roadmap</p>
+        <h2>Arsenal en camino</h2>
+        <p class="section-copy">
+          La base ya esta montada para crecer hacia una pequena suite de
+          utilidades de mesa y decision.
+        </p>
+      </div>
+
+      <div class="arsenal__list" aria-label="Utilidades futuras">
+        <div class="arsenal-item">
+          <span class="arsenal-item__index">01</span>
+          <div>
+            <h3>Mas dados</h3>
+            <p>d4, d6, d8, d10, d12 y d100 con la misma interfaz.</p>
+          </div>
+        </div>
+        <div class="arsenal-item">
+          <span class="arsenal-item__index">02</span>
+          <div>
+            <h3>Iniciativa</h3>
+            <p>Orden de combate rapido para party, enemigos y NPCs.</p>
+          </div>
+        </div>
+        <div class="arsenal-item">
+          <span class="arsenal-item__index">03</span>
+          <div>
+            <h3>Marcadores</h3>
+            <p>Vida, turnos, efectos temporales y contadores utiles.</p>
+          </div>
+        </div>
+        <div class="arsenal-item">
+          <span class="arsenal-item__index">04</span>
+          <div>
+            <h3>Decisiones aleatorias</h3>
+            <p>Selector rapido para eventos, rutas y elecciones de grupo.</p>
           </div>
         </div>
       </div>
-
-      <div class="hero__details">
-        <div class="detail-block">
-          <span class="detail-label">Preparado para</span>
-          <strong>Desempates rapidos</strong>
-        </div>
-        <div class="detail-block">
-          <span class="detail-label">Ideal para</span>
-          <strong>DnD, Baldur's Gate y sesiones casuales</strong>
-        </div>
-      </div>
     </section>
 
-    <section class="panel stack">
-      <div>
-        <p class="eyebrow eyebrow--soft">Modo grupo</p>
-        <h2>Quien saque mas, gana</h2>
-        <p class="panel__lead">
-          Anade jugadores, tira para todos y resuelve al instante si hay
-          ganador claro o si toca desempatar.
+    <section class="chronicle reveal">
+      <div class="section-heading">
+        <p class="eyebrow eyebrow--soft">Session log</p>
+        <h2>Cronica de tiradas</h2>
+        <p class="section-copy">
+          Un historial corto y legible para recordar quien gano cada ronda.
         </p>
       </div>
 
-      <div class="players" id="players">
-        <label class="player-row">
-          <span>Jugador 1</span>
-          <input type="text" value="Jugador 1" />
-        </label>
-        <label class="player-row">
-          <span>Jugador 2</span>
-          <input type="text" value="Jugador 2" />
-        </label>
-      </div>
-
-      <div class="button-row">
-        <button class="button button--ghost" id="addPlayer" type="button">
-          Anadir jugador
-        </button>
-        <button class="button button--primary" id="rollAll" type="button">
-          Tirar para todos
-        </button>
-      </div>
-
-      <div class="result-panel" id="groupResult" aria-live="polite">
-        Esperando una tirada grupal.
-      </div>
-    </section>
-
-    <section class="panel stack">
-      <div>
-        <p class="eyebrow eyebrow--soft">Historial</p>
-        <h2>Ultimas decisiones</h2>
-        <p class="panel__lead">
-          Asi puedes revisar rapidamente quien gano cada ronda.
-        </p>
-      </div>
-      <div class="history" id="history">
-        <p class="history__empty">Todavia no hay tiradas registradas.</p>
+      <div class="history-shell">
+        <div class="history" id="history">
+          <p class="history__empty">Todavia no hay tiradas registradas.</p>
+        </div>
       </div>
     </section>
   </main>
