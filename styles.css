@@ -474,6 +474,62 @@ h3 {
   gap: 18px;
 }
 
+.solo-toolbox {
+  display: grid;
+  gap: 10px;
+}
+
+.solo-toolbox__label,
+.solo-toolbox__meta,
+.duel-hint {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.6;
+}
+
+.solo-toolbox__meta {
+  font-weight: 700;
+  color: var(--text);
+}
+
+.dice-picker {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.dice-chip {
+  min-height: 42px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text);
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.dice-chip:hover {
+  transform: translateY(-1px);
+  border-color: rgba(241, 194, 119, 0.24);
+}
+
+.dice-chip--active {
+  border-color: rgba(241, 194, 119, 0.38);
+  background: linear-gradient(135deg, rgba(241, 194, 119, 0.18), rgba(255, 224, 170, 0.08));
+  box-shadow: inset 0 0 0 1px rgba(241, 194, 119, 0.12);
+}
+
+.is-hidden {
+  display: none !important;
+}
+
 .die-stage {
   display: grid;
   place-items: center;
@@ -627,6 +683,11 @@ input:focus {
 .result-panel__headline {
   margin-bottom: 8px;
   font-size: 1.08rem;
+}
+
+.result-panel__headline--coin {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
 }
 
 .winner {
@@ -811,6 +872,10 @@ input:focus {
     flex: 1 1 0;
   }
 
+  .hero__actions .button--ghost.is-hidden {
+    display: none !important;
+  }
+
   .hero__facts {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
@@ -823,6 +888,10 @@ input:focus {
     grid-template-columns: 56px minmax(0, 1fr);
     gap: 18px;
     align-items: start;
+  }
+
+  .dice-picker {
+    grid-template-columns: repeat(7, minmax(0, 1fr));
   }
 
   .mobile-dock {

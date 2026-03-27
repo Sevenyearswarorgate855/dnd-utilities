@@ -1,0 +1,25 @@
+{
+  "name": "D20 Tavern",
+  "short_name": "D20 Tavern",
+  "description": "Mobile-first fantasy utility for D&D, Baldur's Gate, and tabletop RPG sessions.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#110d17",
+  "theme_color": "#110d17",
+  "lang": "en",
+  "icons": [
+    {
+      "src": "assets/app-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

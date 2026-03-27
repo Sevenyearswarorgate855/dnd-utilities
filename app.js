@@ -1,241 +1,25 @@
-const STORAGE_KEY = "d20-tavern-language";
-const SUPPORTED_LANGUAGES = ["es", "en", "pt-BR"];
-
-const translations = {
-  es: {
-    htmlLang: "es",
-    pageTitle: "D20 Tavern | Utilidad fantasy mobile-first",
-    pageDescription:
-      "Utilidades para Dungeons and Dragons, Baldur's Gate y juegos de fantasia. Incluye tirada d20 individual y comparacion entre varios jugadores.",
-    headerAria: "Cabecera",
-    languageLabel: "Idioma",
-    mobileDockAria: "Acciones rapidas",
-    roadmapAria: "Utilidades futuras",
-    brandMeta: "Utilidad fantasy pensada para movil",
-    topbarBadge: "Telefono primero",
-    heroEyebrow: "D&D / Baldur's Gate / Session Tools",
-    heroTitle: "Un d20 rapido, claro y comodo desde el movil.",
-    heroLead:
-      "Pensado para usar con una mano: tirada instantanea, duelo entre jugadores y resultados faciles de leer en cualquier momento de la partida.",
-    heroRoll: "Tirar d20 ahora",
-    heroGroup: "Ir al duelo",
-    fact1Label: "Rapido",
-    fact1Text: "Toques grandes y lectura inmediata",
-    fact2Label: "Listo",
-    fact2Text: "Criticos, pifias y empates visibles",
-    fact3Label: "Escalable",
-    fact3Text: "Base para mas herramientas de mesa",
-    arenaEyebrow: "Live utility",
-    arenaTitle: "Altar de tiradas",
-    arenaCopy:
-      "Lo principal va primero: tirada individual arriba, duelo de grupo debajo y resultados compactos para no perder tiempo durante la sesion.",
-    soloEyebrow: "Solo roll",
-    soloTitle: "1d20 instantaneo",
-    soloBadge: "Uso rapido",
-    rollSolo: "Tirar 1d20",
-    resetAll: "Reiniciar",
-    duelEyebrow: "Party clash",
-    duelTitle: "Quien saque mas, gana",
-    duelBadge: "Empate automatico",
-    addPlayer: "Anadir jugador",
-    rollAll: "Tirar para todos",
-    historyEyebrow: "Session log",
-    historyTitle: "Cronica de tiradas",
-    historyCopy: "Historial corto y limpio para consultar rapido quien gano cada ronda.",
-    roadmapEyebrow: "Roadmap",
-    roadmapTitle: "Lo siguiente",
-    roadmapCopy:
-      "Cuando esta base ya te guste en movil, podemos seguir con el resto del arsenal.",
-    roadmap1Title: "Mas dados",
-    roadmap1Copy: "d4, d6, d8, d10, d12 y d100 con el mismo sistema visual.",
-    roadmap2Title: "Iniciativa",
-    roadmap2Copy: "Orden de combate rapido para party, enemigos y NPCs.",
-    roadmap3Title: "Marcadores",
-    roadmap3Copy: "Vida, turnos y efectos temporales con controles tactiles.",
-    footerCopyrightPrefix: "Copyright",
-    footerBuiltFor: "Creado para decisiones fantasy rapidas en mesa y para compartirse en GitHub.",
-    dockArena: "Abrir altar",
-    dockRoll: "Tirar d20",
-    dockGroup: "Duelo",
-    playerLabel: "Jugador",
-    playerPlaceholder: (index) => `Nombre de Jugador ${index}`,
-    soloDefault: "Pulsa para hacer una tirada individual.",
-    soloCritical: "Has sacado 20. Critico limpio. Ya puedes decidir.",
-    soloFumble: "Has sacado 1. Pifia total. El caos habla primero.",
-    soloHigh: (result) => `Has sacado ${result}. Tirada fuerte para cerrar la decision.`,
-    soloLow: (result) => `Has sacado ${result}. Resultado flojo para este momento.`,
-    soloMid: (result) => `Has sacado ${result}. Resultado listo para comparar.`,
-    historyEmpty: "Todavia no hay tiradas registradas.",
-    historySolo: (result) => `Tirada individual: ${result}.`,
-    historyWinner: (player, roll) => `${player} gana con ${roll}.`,
-    historyTie: (players, roll) => `Empate a ${roll}: ${players}.`,
-    resultWaiting: "Esperando una tirada grupal.",
-    resultNeedTwo: "Necesitas al menos dos jugadores para comparar tiradas.",
-    resultWinnerHeadline: (player, roll) => `${player} gana con ${roll}.`,
-    resultWinnerCopy: "Decision resuelta. No hace falta desempate.",
-    resultTieHeadline: (players, roll) => `Empate con ${roll} entre ${players}.`,
-    resultTieCopy: "Toca una nueva ronda para desempatar.",
-  },
-  en: {
-    htmlLang: "en",
-    pageTitle: "D20 Tavern | Mobile-first fantasy utility",
-    pageDescription:
-      "Utilities for Dungeons and Dragons, Baldur's Gate, and fantasy games. Includes a solo d20 roll and multiplayer comparison mode.",
-    headerAria: "Header",
-    languageLabel: "Language",
-    mobileDockAria: "Quick actions",
-    roadmapAria: "Upcoming utilities",
-    brandMeta: "Mobile-first fantasy utility",
-    topbarBadge: "Phone first",
-    heroEyebrow: "D&D / Baldur's Gate / Session Tools",
-    heroTitle: "A fast, clear d20 built for your phone.",
-    heroLead:
-      "Made for one-handed use: instant rolls, quick multiplayer duels, and readable results that stay out of the way during a session.",
-    heroRoll: "Roll d20 now",
-    heroGroup: "Go to duel",
-    fact1Label: "Fast",
-    fact1Text: "Large touch targets and instant readability",
-    fact2Label: "Ready",
-    fact2Text: "Criticals, fumbles, and ties are easy to spot",
-    fact3Label: "Scalable",
-    fact3Text: "A solid base for more table utilities",
-    arenaEyebrow: "Live utility",
-    arenaTitle: "Roll altar",
-    arenaCopy:
-      "The main utility comes first: solo roll on top, group duel below, and compact results so you can keep the session moving.",
-    soloEyebrow: "Solo roll",
-    soloTitle: "Instant 1d20",
-    soloBadge: "Quick use",
-    rollSolo: "Roll 1d20",
-    resetAll: "Reset",
-    duelEyebrow: "Party clash",
-    duelTitle: "Highest roll wins",
-    duelBadge: "Tie detection",
-    addPlayer: "Add player",
-    rollAll: "Roll for everyone",
-    historyEyebrow: "Session log",
-    historyTitle: "Roll history",
-    historyCopy: "A short, clean history so you can check who won each round at a glance.",
-    roadmapEyebrow: "Roadmap",
-    roadmapTitle: "What comes next",
-    roadmapCopy:
-      "Once this mobile foundation feels right, the rest of the toolkit can grow on top of it.",
-    roadmap1Title: "More dice",
-    roadmap1Copy: "d4, d6, d8, d10, d12, and d100 using the same visual system.",
-    roadmap2Title: "Initiative",
-    roadmap2Copy: "Fast combat order for party members, enemies, and NPCs.",
-    roadmap3Title: "Trackers",
-    roadmap3Copy: "HP, turns, and temporary effects with touch-friendly controls.",
-    footerCopyrightPrefix: "Copyright",
-    footerBuiltFor: "Built for quick fantasy table decisions and public sharing on GitHub.",
-    dockArena: "Open altar",
-    dockRoll: "Roll d20",
-    dockGroup: "Duel",
-    playerLabel: "Player",
-    playerPlaceholder: (index) => `Player ${index} name`,
-    soloDefault: "Tap to make a solo roll.",
-    soloCritical: "You rolled 20. Clean critical. You can decide now.",
-    soloFumble: "You rolled 1. Total fumble. Chaos speaks first.",
-    soloHigh: (result) => `You rolled ${result}. Strong roll to settle the decision.`,
-    soloLow: (result) => `You rolled ${result}. Not the strongest moment for destiny.`,
-    soloMid: (result) => `You rolled ${result}. Result ready to compare.`,
-    historyEmpty: "No rolls have been recorded yet.",
-    historySolo: (result) => `Solo roll: ${result}.`,
-    historyWinner: (player, roll) => `${player} wins with ${roll}.`,
-    historyTie: (players, roll) => `Tie at ${roll}: ${players}.`,
-    resultWaiting: "Waiting for a group roll.",
-    resultNeedTwo: "You need at least two players to compare rolls.",
-    resultWinnerHeadline: (player, roll) => `${player} wins with ${roll}.`,
-    resultWinnerCopy: "Decision settled. No tiebreaker needed.",
-    resultTieHeadline: (players, roll) => `Tie at ${roll} between ${players}.`,
-    resultTieCopy: "Roll again to break the tie.",
-  },
-  "pt-BR": {
-    htmlLang: "pt-BR",
-    pageTitle: "D20 Tavern | Utilitario fantasy mobile-first",
-    pageDescription:
-      "Utilitarios para Dungeons and Dragons, Baldur's Gate e jogos de fantasia. Inclui rolagem solo de d20 e comparacao entre varios jogadores.",
-    headerAria: "Cabecalho",
-    languageLabel: "Idioma",
-    mobileDockAria: "Acoes rapidas",
-    roadmapAria: "Utilitarios futuros",
-    brandMeta: "Utilitario fantasy pensado para celular",
-    topbarBadge: "Celular primeiro",
-    heroEyebrow: "D&D / Baldur's Gate / Session Tools",
-    heroTitle: "Um d20 rapido, claro e confortavel no celular.",
-    heroLead:
-      "Feito para usar com uma mao: rolagem instantanea, duelo entre jogadores e resultados faceis de ler durante a sessao.",
-    heroRoll: "Rolar d20 agora",
-    heroGroup: "Ir para o duelo",
-    fact1Label: "Rapido",
-    fact1Text: "Toques grandes e leitura imediata",
-    fact2Label: "Pronto",
-    fact2Text: "Criticos, falhas e empates bem visiveis",
-    fact3Label: "Escalavel",
-    fact3Text: "Base pronta para mais utilitarios de mesa",
-    arenaEyebrow: "Live utility",
-    arenaTitle: "Altar de rolagens",
-    arenaCopy:
-      "O principal vem primeiro: rolagem individual no topo, duelo em grupo abaixo e resultados compactos para a sessao continuar fluindo.",
-    soloEyebrow: "Solo roll",
-    soloTitle: "1d20 instantaneo",
-    soloBadge: "Uso rapido",
-    rollSolo: "Rolar 1d20",
-    resetAll: "Reiniciar",
-    duelEyebrow: "Party clash",
-    duelTitle: "Quem tirar mais, vence",
-    duelBadge: "Empate automatico",
-    addPlayer: "Adicionar jogador",
-    rollAll: "Rolar para todos",
-    historyEyebrow: "Session log",
-    historyTitle: "Historico de rolagens",
-    historyCopy: "Um historico curto e limpo para ver rapidamente quem venceu cada rodada.",
-    roadmapEyebrow: "Roadmap",
-    roadmapTitle: "Proximos passos",
-    roadmapCopy:
-      "Quando essa base estiver boa no celular, o resto do arsenal pode crescer em cima dela.",
-    roadmap1Title: "Mais dados",
-    roadmap1Copy: "d4, d6, d8, d10, d12 e d100 com a mesma linguagem visual.",
-    roadmap2Title: "Iniciativa",
-    roadmap2Copy: "Ordem de combate rapida para party, inimigos e NPCs.",
-    roadmap3Title: "Marcadores",
-    roadmap3Copy: "Vida, turnos e efeitos temporarios com controles faceis de tocar.",
-    footerCopyrightPrefix: "Copyright",
-    footerBuiltFor: "Feito para decisoes fantasy rapidas de mesa e para ser compartilhado no GitHub.",
-    dockArena: "Abrir altar",
-    dockRoll: "Rolar d20",
-    dockGroup: "Duelo",
-    playerLabel: "Jogador",
-    playerPlaceholder: (index) => `Nome do Jogador ${index}`,
-    soloDefault: "Toque para fazer uma rolagem individual.",
-    soloCritical: "Voce tirou 20. Critico limpo. Ja pode decidir.",
-    soloFumble: "Voce tirou 1. Falha total. O caos fala primeiro.",
-    soloHigh: (result) => `Voce tirou ${result}. Rolagem forte para fechar a decisao.`,
-    soloLow: (result) => `Voce tirou ${result}. Nao foi o melhor momento do destino.`,
-    soloMid: (result) => `Voce tirou ${result}. Resultado pronto para comparar.`,
-    historyEmpty: "Ainda nao ha rolagens registradas.",
-    historySolo: (result) => `Rolagem individual: ${result}.`,
-    historyWinner: (player, roll) => `${player} vence com ${roll}.`,
-    historyTie: (players, roll) => `Empate em ${roll}: ${players}.`,
-    resultWaiting: "Aguardando uma rolagem em grupo.",
-    resultNeedTwo: "Voce precisa de pelo menos dois jogadores para comparar as rolagens.",
-    resultWinnerHeadline: (player, roll) => `${player} vence com ${roll}.`,
-    resultWinnerCopy: "Decisao resolvida. Nao precisa desempatar.",
-    resultTieHeadline: (players, roll) => `Empate em ${roll} entre ${players}.`,
-    resultTieCopy: "Rolem novamente para desempatar.",
-  },
-};
+const LANGUAGE_STORAGE_KEY = "d20-tavern-language";
+const SESSION_STORAGE_KEY = "d20-tavern-session-v2";
+const DEFAULT_LANGUAGE = "en";
+const DEFAULT_PLAYERS = ["", ""];
+const DEFAULT_DIE = 20;
+const DICE_OPTIONS = [4, 6, 8, 10, 12, 20, 100];
+const translations = window.D20_TRANSLATIONS || {};
+const SUPPORTED_LANGUAGES = Object.keys(translations);
 
 const heroDie = document.getElementById("soloDie");
 const panelDie = document.getElementById("soloDiePanel");
 const soloMessage = document.getElementById("soloMessage");
+const selectedModeLabel = document.getElementById("selectedModeLabel");
 const addPlayerButton = document.getElementById("addPlayer");
 const rollAllButton = document.getElementById("rollAll");
 const rollSoloButton = document.getElementById("rollSolo");
+const coinFlipButton = document.getElementById("coinFlip");
 const resetAllButton = document.getElementById("resetAll");
 const jumpToArenaButton = document.getElementById("jumpToArena");
 const heroRollButton = document.getElementById("heroRoll");
 const heroGroupButton = document.getElementById("heroGroup");
+const installAppButton = document.getElementById("installApp");
 const dockRollButton = document.getElementById("dockRoll");
 const dockGroupButton = document.getElementById("dockGroup");
 const playersContainer = document.getElementById("players");
@@ -250,36 +34,122 @@ const topbar = document.getElementById("topbar");
 const mobileDock = document.getElementById("mobileDock");
 const roadmapList = document.getElementById("roadmapList");
 const copyrightYear = document.getElementById("copyrightYear");
+const dicePicker = document.getElementById("dicePicker");
 
 const state = {
   language: getInitialLanguage(),
+  selectedDie: DEFAULT_DIE,
   historyEntries: [],
-  lastSoloResult: null,
+  lastSoloRoll: null,
   groupResult: { type: "waiting" },
+  players: [...DEFAULT_PLAYERS],
+  deferredInstallPrompt: null,
 };
 
+hydrateSession();
+
+function normalizeLanguage(language) {
+  if (!language) {
+    return null;
+  }
+
+  const exactMatch = SUPPORTED_LANGUAGES.find(
+    (supportedLanguage) => supportedLanguage.toLowerCase() === language.toLowerCase()
+  );
+
+  if (exactMatch) {
+    return exactMatch;
+  }
+
+  const lowered = language.toLowerCase();
+
+  if (lowered.startsWith("pt")) return "pt-BR";
+  if (lowered.startsWith("es")) return "es";
+  if (lowered.startsWith("en")) return "en";
+  if (lowered.startsWith("fr")) return "fr";
+  if (lowered.startsWith("de")) return "de";
+  if (lowered.startsWith("it")) return "it";
+
+  return null;
+}
+
 function getInitialLanguage() {
-  const stored = window.localStorage.getItem(STORAGE_KEY);
+  const urlLanguage = new URLSearchParams(window.location.search).get("lang");
+  const normalizedUrlLanguage = normalizeLanguage(urlLanguage);
 
-  if (SUPPORTED_LANGUAGES.includes(stored)) {
-    return stored;
+  if (normalizedUrlLanguage) {
+    return normalizedUrlLanguage;
   }
 
-  const browserLanguage = navigator.language || "es";
+  const storedLanguage = normalizeLanguage(window.localStorage.getItem(LANGUAGE_STORAGE_KEY));
 
-  if (browserLanguage.toLowerCase().startsWith("pt")) {
-    return "pt-BR";
+  if (storedLanguage) {
+    return storedLanguage;
   }
 
-  if (browserLanguage.toLowerCase().startsWith("en")) {
-    return "en";
+  const browserLanguages = [navigator.language, ...(navigator.languages || [])];
+
+  for (const language of browserLanguages) {
+    const normalized = normalizeLanguage(language);
+
+    if (normalized) {
+      return normalized;
+    }
   }
 
-  return "es";
+  return DEFAULT_LANGUAGE;
+}
+
+function hydrateSession() {
+  try {
+    const rawSession = window.localStorage.getItem(SESSION_STORAGE_KEY);
+
+    if (!rawSession) {
+      return;
+    }
+
+    const parsed = JSON.parse(rawSession);
+
+    if (DICE_OPTIONS.includes(parsed.selectedDie)) {
+      state.selectedDie = parsed.selectedDie;
+    }
+
+    if (Array.isArray(parsed.players) && parsed.players.length > 0) {
+      state.players = parsed.players.map((player) => String(player ?? ""));
+    }
+
+    if (Array.isArray(parsed.historyEntries)) {
+      state.historyEntries = parsed.historyEntries;
+    }
+
+    if (parsed.lastSoloRoll && typeof parsed.lastSoloRoll === "object") {
+      state.lastSoloRoll = parsed.lastSoloRoll;
+    }
+
+    if (parsed.groupResult && typeof parsed.groupResult === "object") {
+      state.groupResult = parsed.groupResult;
+    }
+  } catch (error) {
+    console.warn("Unable to restore session state.", error);
+  }
+}
+
+function persistSession() {
+  const session = {
+    selectedDie: state.selectedDie,
+    players: state.players,
+    historyEntries: state.historyEntries,
+    lastSoloRoll: state.lastSoloRoll,
+    groupResult: state.groupResult,
+  };
+
+  window.localStorage.setItem(SESSION_STORAGE_KEY, JSON.stringify(session));
 }
 
 function getText(key) {
-  return translations[state.language][key];
+  const currentPack = translations[state.language] || {};
+  const fallbackPack = translations[DEFAULT_LANGUAGE] || {};
+  return currentPack[key] ?? fallbackPack[key] ?? key;
 }
 
 function formatText(key, ...args) {
@@ -287,59 +157,103 @@ function formatText(key, ...args) {
   return typeof value === "function" ? value(...args) : value;
 }
 
-function rollD20() {
-  return Math.floor(Math.random() * 20) + 1;
+function getDieLabel(sides) {
+  return `d${sides}`;
 }
 
-function setDieState(result) {
+function updateUrlLanguage(language) {
+  const url = new URL(window.location.href);
+  url.searchParams.set("lang", language);
+  window.history.replaceState({}, "", url);
+}
+
+function setLanguageOptions() {
+  [...languageSelect.options].forEach((option) => {
+    const pack = translations[option.value];
+
+    if (pack?.nativeLabel) {
+      option.textContent = pack.nativeLabel;
+    }
+  });
+}
+
+function renderPlayers() {
+  playersContainer.innerHTML = "";
+
+  state.players.forEach((playerName, index) => {
+    const label = document.createElement("label");
+    label.className = "player-row";
+
+    const title = document.createElement("span");
+    title.setAttribute("data-player-label", "");
+    title.dataset.playerIndex = String(index + 1);
+
+    const input = document.createElement("input");
+    input.type = "text";
+    input.value = playerName;
+    input.setAttribute("data-player-input", "");
+    input.dataset.playerIndex = String(index + 1);
+
+    label.append(title, input);
+    playersContainer.appendChild(label);
+  });
+
+  updatePlayerFields();
+}
+
+function updatePlayerFields() {
+  const labels = [...playersContainer.querySelectorAll("[data-player-label]")];
+  const inputs = [...playersContainer.querySelectorAll("[data-player-input]")];
+
+  labels.forEach((label, index) => {
+    label.textContent = `${formatText("playerLabel")} ${index + 1}`;
+  });
+
+  inputs.forEach((input, index) => {
+    input.placeholder = formatText("playerPlaceholder", index + 1);
+  });
+}
+
+function setDiceFace(value) {
+  [heroDie, panelDie].forEach((die) => {
+    die.textContent = String(value);
+  });
+}
+
+function clearDieStates() {
+  [heroDie, panelDie].forEach((die) => {
+    die.classList.remove("die--critical", "die--fumble", "die--rolling");
+  });
+}
+
+function setDieState(result, sides = state.selectedDie) {
   [heroDie, panelDie].forEach((die) => {
     die.classList.remove("die--critical", "die--fumble");
 
-    if (result === 20) {
+    if (sides === 20 && result === 20) {
       die.classList.add("die--critical");
-    } else if (result === 1) {
+    } else if (sides === 20 && result === 1) {
       die.classList.add("die--fumble");
     }
   });
 }
 
-function animateDie(result) {
+function animateDie(value, sides = state.selectedDie) {
   [heroDie, panelDie].forEach((die, index) => {
     die.classList.remove("die--rolling");
     void die.offsetWidth;
     die.classList.add("die--rolling");
 
     window.setTimeout(() => {
-      die.textContent = String(result);
+      die.textContent = String(value);
     }, 140 + index * 20);
   });
 
-  setDieState(result);
+  setDieState(value, sides);
 }
 
-function getSoloMessage(result) {
-  if (result === 20) return formatText("soloCritical");
-  if (result === 1) return formatText("soloFumble");
-  if (result >= 16) return formatText("soloHigh", result);
-  if (result <= 5) return formatText("soloLow", result);
-  return formatText("soloMid", result);
-}
-
-function createPlayerInput(index) {
-  const label = document.createElement("label");
-  label.className = "player-row";
-
-  const title = document.createElement("span");
-  title.setAttribute("data-player-label", "");
-  title.dataset.playerIndex = String(index);
-
-  const input = document.createElement("input");
-  input.type = "text";
-  input.setAttribute("data-player-input", "");
-  input.dataset.playerIndex = String(index);
-
-  label.append(title, input);
-  return label;
+function rollDie(sides) {
+  return Math.floor(Math.random() * sides) + 1;
 }
 
 function getPlayerDisplayName(player) {
@@ -359,22 +273,49 @@ function getPlayers() {
       index: index + 1,
       name,
       isDefault: name === "",
-      roll: rollD20(),
+      roll: rollDie(20),
     };
   });
 }
 
-function updatePlayerFields() {
-  const labels = [...playersContainer.querySelectorAll("[data-player-label]")];
-  const inputs = [...playersContainer.querySelectorAll("[data-player-input]")];
+function getSoloDieMessage(result, sides) {
+  const dieLabel = getDieLabel(sides);
 
-  labels.forEach((label, index) => {
-    label.textContent = `${formatText("playerLabel")} ${index + 1}`;
-  });
+  if (sides === 20 && result === 20) {
+    return formatText("soloCritical");
+  }
 
-  inputs.forEach((input, index) => {
-    input.placeholder = formatText("playerPlaceholder", index + 1);
-  });
+  if (sides === 20 && result === 1) {
+    return formatText("soloFumble");
+  }
+
+  if (sides === 20 && result >= 16) {
+    return formatText("soloHigh", result);
+  }
+
+  if (sides === 20 && result <= 5) {
+    return formatText("soloLow", result);
+  }
+
+  return formatText("soloDieMessage", result, dieLabel);
+}
+
+function getCoinSideLabel(side) {
+  return side === "heads" ? formatText("coinHeadsLabel") : formatText("coinTailsLabel");
+}
+
+function getSoloMessage(roll) {
+  if (!roll) {
+    return formatText("soloDefault");
+  }
+
+  if (roll.type === "coin") {
+    return roll.result === "heads"
+      ? formatText("coinHeadsMessage")
+      : formatText("coinTailsMessage");
+  }
+
+  return getSoloDieMessage(roll.result, roll.sides);
 }
 
 function renderHistory() {
@@ -392,15 +333,17 @@ function renderHistory() {
     const item = document.createElement("p");
     item.className = "history__item";
 
-    if (entry.type === "solo") {
-      item.textContent = formatText("historySolo", entry.result);
-    }
-
-    if (entry.type === "winner") {
-      item.textContent = formatText("historyWinner", getPlayerDisplayName(entry.winner), entry.roll);
-    }
-
-    if (entry.type === "tie") {
+    if (entry.type === "die") {
+      item.textContent = formatText("historySolo", entry.result, getDieLabel(entry.sides));
+    } else if (entry.type === "coin") {
+      item.textContent = formatText("historyCoin", getCoinSideLabel(entry.result));
+    } else if (entry.type === "winner") {
+      item.textContent = formatText(
+        "historyWinner",
+        getPlayerDisplayName(entry.winner),
+        entry.roll
+      );
+    } else if (entry.type === "tie") {
       const names = entry.players.map(getPlayerDisplayName).join(", ");
       item.textContent = formatText("historyTie", names, entry.roll);
     }
@@ -410,7 +353,8 @@ function renderHistory() {
 }
 
 function addHistory(entry) {
-  state.historyEntries = [entry, ...state.historyEntries].slice(0, 8);
+  state.historyEntries = [entry, ...state.historyEntries].slice(0, 10);
+  persistSession();
   renderHistory();
 }
 
@@ -471,17 +415,49 @@ function renderGroupResult() {
   `;
 }
 
+function renderSelectedDieUI() {
+  const dieLabel = getDieLabel(state.selectedDie);
+  selectedModeLabel.textContent = formatText("selectedDieMeta", dieLabel);
+  heroRollButton.textContent = formatText("rollAction", dieLabel);
+  rollSoloButton.textContent = formatText("rollAction", dieLabel);
+  dockRollButton.textContent = formatText("rollActionShort", dieLabel);
+
+  [...dicePicker.querySelectorAll("[data-die]")].forEach((button) => {
+    button.classList.toggle("dice-chip--active", Number(button.dataset.die) === state.selectedDie);
+  });
+}
+
+function renderSoloState() {
+  if (!state.lastSoloRoll) {
+    clearDieStates();
+    setDiceFace(state.selectedDie);
+    soloMessage.textContent = formatText("soloDefault");
+    return;
+  }
+
+  if (state.lastSoloRoll.type === "coin") {
+    clearDieStates();
+    setDiceFace(state.lastSoloRoll.result === "heads" ? "H" : "T");
+  } else {
+    setDiceFace(state.lastSoloRoll.result);
+    setDieState(state.lastSoloRoll.result, state.lastSoloRoll.sides);
+  }
+
+  soloMessage.textContent = getSoloMessage(state.lastSoloRoll);
+}
+
 function applyStaticTranslations() {
   translatableNodes.forEach((node) => {
     node.textContent = formatText(node.dataset.i18n);
   });
 
-  document.documentElement.lang = translations[state.language].htmlLang;
+  document.documentElement.lang = formatText("htmlLang");
   document.title = formatText("pageTitle");
   pageDescription.setAttribute("content", formatText("pageDescription"));
   topbar.setAttribute("aria-label", formatText("headerAria"));
   mobileDock.setAttribute("aria-label", formatText("mobileDockAria"));
   roadmapList.setAttribute("aria-label", formatText("roadmapAria"));
+  dicePicker.setAttribute("aria-label", formatText("dicePickerLabel"));
   document.getElementById("languageLabel").textContent = formatText("languageLabel");
   languageSelect.setAttribute("aria-label", formatText("languageLabel"));
   languageSelect.value = state.language;
@@ -489,22 +465,59 @@ function applyStaticTranslations() {
 }
 
 function applyLanguage(language) {
-  state.language = language;
-  window.localStorage.setItem(STORAGE_KEY, language);
+  const normalizedLanguage = normalizeLanguage(language) || DEFAULT_LANGUAGE;
+  state.language = normalizedLanguage;
+  window.localStorage.setItem(LANGUAGE_STORAGE_KEY, normalizedLanguage);
+  updateUrlLanguage(normalizedLanguage);
   applyStaticTranslations();
   updatePlayerFields();
-  soloMessage.textContent =
-    state.lastSoloResult === null ? formatText("soloDefault") : getSoloMessage(state.lastSoloResult);
+  renderSelectedDieUI();
+  renderSoloState();
   renderGroupResult();
   renderHistory();
 }
 
-function runSoloRoll() {
-  const result = rollD20();
-  state.lastSoloResult = result;
-  animateDie(result);
-  soloMessage.textContent = getSoloMessage(result);
-  addHistory({ type: "solo", result });
+function runSelectedDieRoll() {
+  const result = rollDie(state.selectedDie);
+  state.lastSoloRoll = {
+    type: "die",
+    sides: state.selectedDie,
+    result,
+  };
+
+  animateDie(result, state.selectedDie);
+  soloMessage.textContent = getSoloMessage(state.lastSoloRoll);
+  addHistory({ type: "die", sides: state.selectedDie, result });
+  persistSession();
+}
+
+function runCoinFlip() {
+  const result = Math.random() < 0.5 ? "heads" : "tails";
+  state.lastSoloRoll = {
+    type: "coin",
+    result,
+  };
+
+  clearDieStates();
+  animateDie(result === "heads" ? "H" : "T", null);
+  soloMessage.textContent = getSoloMessage(state.lastSoloRoll);
+  addHistory({ type: "coin", result });
+  persistSession();
+}
+
+function setSelectedDie(sides) {
+  if (!DICE_OPTIONS.includes(sides)) {
+    return;
+  }
+
+  state.selectedDie = sides;
+  renderSelectedDieUI();
+
+  if (!state.lastSoloRoll) {
+    setDiceFace(sides);
+  }
+
+  persistSession();
 }
 
 function revealOnScroll() {
@@ -531,14 +544,73 @@ function goToArena() {
   arenaSection.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
-rollSoloButton.addEventListener("click", runSoloRoll);
-heroRollButton.addEventListener("click", runSoloRoll);
-dockRollButton.addEventListener("click", runSoloRoll);
+function registerServiceWorker() {
+  if (!("serviceWorker" in navigator)) {
+    return;
+  }
+
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./sw.js").catch((error) => {
+      console.warn("Service worker registration failed.", error);
+    });
+  });
+}
+
+function setupPwaInstall() {
+  window.addEventListener("beforeinstallprompt", (event) => {
+    event.preventDefault();
+    state.deferredInstallPrompt = event;
+    installAppButton.classList.remove("is-hidden");
+  });
+
+  installAppButton.addEventListener("click", async () => {
+    if (!state.deferredInstallPrompt) {
+      return;
+    }
+
+    state.deferredInstallPrompt.prompt();
+    await state.deferredInstallPrompt.userChoice;
+    state.deferredInstallPrompt = null;
+    installAppButton.classList.add("is-hidden");
+  });
+
+  window.addEventListener("appinstalled", () => {
+    state.deferredInstallPrompt = null;
+    installAppButton.classList.add("is-hidden");
+  });
+}
+
+heroRollButton.addEventListener("click", runSelectedDieRoll);
+rollSoloButton.addEventListener("click", runSelectedDieRoll);
+dockRollButton.addEventListener("click", runSelectedDieRoll);
+coinFlipButton.addEventListener("click", runCoinFlip);
+
+dicePicker.addEventListener("click", (event) => {
+  const button = event.target.closest("[data-die]");
+
+  if (!button) {
+    return;
+  }
+
+  setSelectedDie(Number(button.dataset.die));
+});
+
+playersContainer.addEventListener("input", (event) => {
+  const input = event.target.closest("[data-player-input]");
+
+  if (!input) {
+    return;
+  }
+
+  const playerIndex = Number(input.dataset.playerIndex) - 1;
+  state.players[playerIndex] = input.value;
+  persistSession();
+});
 
 addPlayerButton.addEventListener("click", () => {
-  const nextIndex = playersContainer.querySelectorAll("[data-player-input]").length + 1;
-  playersContainer.appendChild(createPlayerInput(nextIndex));
-  updatePlayerFields();
+  state.players.push("");
+  renderPlayers();
+  persistSession();
 });
 
 rollAllButton.addEventListener("click", () => {
@@ -548,6 +620,7 @@ rollAllButton.addEventListener("click", () => {
     state.groupResult = { type: "error" };
     renderGroupResult();
     pulseResultPanel();
+    persistSession();
     return;
   }
 
@@ -559,6 +632,7 @@ rollAllButton.addEventListener("click", () => {
     addHistory({ type: "winner", winner: winners[0], roll: highest });
     renderGroupResult();
     pulseResultPanel();
+    persistSession();
     return;
   }
 
@@ -566,20 +640,23 @@ rollAllButton.addEventListener("click", () => {
   addHistory({ type: "tie", players: winners, roll: highest });
   renderGroupResult();
   pulseResultPanel();
+  persistSession();
 });
 
 resetAllButton.addEventListener("click", () => {
-  [heroDie, panelDie].forEach((die) => {
-    die.textContent = "20";
-    die.classList.remove("die--critical", "die--fumble", "die--rolling");
-  });
-
-  state.lastSoloResult = null;
+  clearDieStates();
+  state.selectedDie = DEFAULT_DIE;
+  state.lastSoloRoll = null;
   state.groupResult = { type: "waiting" };
   state.historyEntries = [];
-  soloMessage.textContent = formatText("soloDefault");
+  state.players = [...DEFAULT_PLAYERS];
+
+  renderPlayers();
+  renderSelectedDieUI();
+  renderSoloState();
   renderGroupResult();
   renderHistory();
+  persistSession();
 });
 
 jumpToArenaButton.addEventListener("click", goToArena);
@@ -595,7 +672,13 @@ languageSelect.addEventListener("change", (event) => {
   applyLanguage(event.target.value);
 });
 
+setLanguageOptions();
+renderPlayers();
+renderSelectedDieUI();
 applyLanguage(state.language);
+renderSoloState();
 renderGroupResult();
 renderHistory();
 revealOnScroll();
+setupPwaInstall();
+registerServiceWorker();

@@ -12,25 +12,29 @@ Mobile-first fantasy utility for Dungeons & Dragons, Baldur's Gate, and other ta
 ## Why It Stands Out
 
 - Built mobile-first for real session use, not just desktop demos
-- Fast `d20` rolling with multiplayer comparison
-- Built-in language switching for `es`, `en`, and `pt-BR`
+- Fast dice rolling with multiplayer comparison
+- Built-in language switching for `es`, `en`, `pt-BR`, `fr`, `de`, and `it`
 - Visual direction designed to feel more like a fantasy tool than a generic app
 - Framework-free and easy to deploy on GitHub Pages
+- Local session persistence and installable PWA support
 
 ## Features
 
 ### Current
 
 - Solo `d20` rolls
+- More dice: `d4`, `d6`, `d8`, `d10`, `d12`, `d20`, `d100`
+- Coin flip
 - Multiplayer roll comparison
 - Tie detection
 - Critical and fumble highlights
 - Short session history
 - Language switching without reload
+- LocalStorage persistence for session state
+- PWA-ready setup with manifest and service worker
 
 ### Planned
 
-- More dice: `d4`, `d6`, `d8`, `d10`, `d12`, `d100`
 - Initiative tracker
 - HP and temporary effect trackers
 - Random decision tools
@@ -50,10 +54,14 @@ This project is static and works well with GitHub Pages.
 |-- assets/
 |-- index.html
 |-- styles.css
+|-- translations.js
 |-- app.js
+|-- manifest.json
+|-- sw.js
 |-- CONTRIBUTING.md
 |-- CODE_OF_CONDUCT.md
 |-- LICENSE
+|-- TRANSLATING.md
 `-- README.md
 ```
 
@@ -64,8 +72,11 @@ Supported languages:
 - Spanish (`es`)
 - English (`en`)
 - Portuguese Brazil (`pt-BR`)
+- French (`fr`)
+- German (`de`)
+- Italian (`it`)
 
-Translations live in `app.js` and cover:
+Translations live in `translations.js` and cover:
 
 - Static UI text
 - Dynamic result messages
@@ -73,11 +84,24 @@ Translations live in `app.js` and cover:
 - Player labels and placeholders
 - Document title and meta description
 
+Language selection supports:
+
+- Browser language detection
+- `localStorage` persistence
+- URL control with `?lang=`
+
+For example:
+
+- `?lang=en`
+- `?lang=es`
+- `?lang=fr`
+
 ## Contributing
 
 Contributions are welcome.
 
 - Read [CONTRIBUTING.md](CONTRIBUTING.md)
+- Read [TRANSLATING.md](TRANSLATING.md) for localization updates
 - Use the GitHub issue templates for bugs and ideas
 - Follow [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)
 

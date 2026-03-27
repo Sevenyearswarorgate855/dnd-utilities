@@ -10,6 +10,7 @@
   />
   <meta name="theme-color" content="#110d17" />
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="manifest" href="manifest.json" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -41,6 +42,9 @@
               <option value="es">ES</option>
               <option value="en">EN</option>
               <option value="pt-BR">PT-BR</option>
+              <option value="fr">FR</option>
+              <option value="de">DE</option>
+              <option value="it">IT</option>
             </select>
           </label>
         </div>
@@ -65,11 +69,14 @@
         </div>
 
         <div class="hero__actions">
-          <button class="button button--primary" id="heroRoll" type="button" data-i18n="heroRoll">
+          <button class="button button--primary" id="heroRoll" type="button">
             Tirar d20 ahora
           </button>
           <button class="button button--secondary" id="heroGroup" type="button" data-i18n="heroGroup">
             Ir al duelo
+          </button>
+          <button class="button button--ghost is-hidden" id="installApp" type="button" data-i18n="installApp">
+            Instalar app
           </button>
         </div>
 
@@ -117,9 +124,26 @@
             </div>
 
             <div class="solo-panel__content">
+              <div class="solo-toolbox">
+                <p class="solo-toolbox__label" data-i18n="dicePickerLabel">Elige tu dado</p>
+                <div class="dice-picker" id="dicePicker" aria-label="Dice picker">
+                  <button class="dice-chip dice-chip--active" type="button" data-die="4">d4</button>
+                  <button class="dice-chip" type="button" data-die="6">d6</button>
+                  <button class="dice-chip" type="button" data-die="8">d8</button>
+                  <button class="dice-chip" type="button" data-die="10">d10</button>
+                  <button class="dice-chip" type="button" data-die="12">d12</button>
+                  <button class="dice-chip" type="button" data-die="20">d20</button>
+                  <button class="dice-chip" type="button" data-die="100">d100</button>
+                </div>
+                <p class="solo-toolbox__meta" id="selectedModeLabel">Dado seleccionado: d20</p>
+              </div>
+
               <div class="button-row">
-                <button class="button button--primary" id="rollSolo" type="button" data-i18n="rollSolo">
+                <button class="button button--primary" id="rollSolo" type="button">
                   Tirar 1d20
+                </button>
+                <button class="button button--secondary" id="coinFlip" type="button" data-i18n="coinFlip">
+                  Coin flip
                 </button>
                 <button class="button button--ghost" id="resetAll" type="button" data-i18n="resetAll">
                   Reiniciar
@@ -161,6 +185,10 @@
               Tirar para todos
             </button>
           </div>
+
+          <p class="duel-hint" data-i18n="duelHint">
+            Group duel uses d20 rolls for every player.
+          </p>
 
           <div class="result-panel" id="groupResult" aria-live="polite">
             <p class="result-panel__intro">Esperando una tirada grupal.</p>
@@ -235,7 +263,7 @@
     <button class="button button--ghost mobile-dock__button" id="jumpToArena" type="button" data-i18n="dockArena">
       Abrir altar
     </button>
-    <button class="button button--primary mobile-dock__button" id="dockRoll" type="button" data-i18n="dockRoll">
+    <button class="button button--primary mobile-dock__button" id="dockRoll" type="button">
       Tirar d20
     </button>
     <button class="button button--secondary mobile-dock__button" id="dockGroup" type="button" data-i18n="dockGroup">
@@ -243,6 +271,7 @@
     </button>
   </nav>
 
+  <script src="translations.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
