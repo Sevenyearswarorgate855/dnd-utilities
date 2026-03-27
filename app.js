@@ -52,6 +52,8 @@ const translations = {
     roadmap2Copy: "Orden de combate rapido para party, enemigos y NPCs.",
     roadmap3Title: "Marcadores",
     roadmap3Copy: "Vida, turnos y efectos temporales con controles tactiles.",
+    footerCopyrightPrefix: "Copyright",
+    footerBuiltFor: "Creado para decisiones fantasy rapidas en mesa y para compartirse en GitHub.",
     dockArena: "Abrir altar",
     dockRoll: "Tirar d20",
     dockGroup: "Duelo",
@@ -124,6 +126,8 @@ const translations = {
     roadmap2Copy: "Fast combat order for party members, enemies, and NPCs.",
     roadmap3Title: "Trackers",
     roadmap3Copy: "HP, turns, and temporary effects with touch-friendly controls.",
+    footerCopyrightPrefix: "Copyright",
+    footerBuiltFor: "Built for quick fantasy table decisions and public sharing on GitHub.",
     dockArena: "Open altar",
     dockRoll: "Roll d20",
     dockGroup: "Duel",
@@ -196,6 +200,8 @@ const translations = {
     roadmap2Copy: "Ordem de combate rapida para party, inimigos e NPCs.",
     roadmap3Title: "Marcadores",
     roadmap3Copy: "Vida, turnos e efeitos temporarios com controles faceis de tocar.",
+    footerCopyrightPrefix: "Copyright",
+    footerBuiltFor: "Feito para decisoes fantasy rapidas de mesa e para ser compartilhado no GitHub.",
     dockArena: "Abrir altar",
     dockRoll: "Rolar d20",
     dockGroup: "Duelo",
@@ -243,6 +249,7 @@ const translatableNodes = document.querySelectorAll("[data-i18n]");
 const topbar = document.getElementById("topbar");
 const mobileDock = document.getElementById("mobileDock");
 const roadmapList = document.getElementById("roadmapList");
+const copyrightYear = document.getElementById("copyrightYear");
 
 const state = {
   language: getInitialLanguage(),
@@ -478,6 +485,7 @@ function applyStaticTranslations() {
   document.getElementById("languageLabel").textContent = formatText("languageLabel");
   languageSelect.setAttribute("aria-label", formatText("languageLabel"));
   languageSelect.value = state.language;
+  copyrightYear.textContent = String(new Date().getFullYear());
 }
 
 function applyLanguage(language) {

@@ -1,91 +1,106 @@
 # D20 Tavern
 
+![D20 Tavern banner](assets/banner.svg)
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-f1c277.svg)](LICENSE)
+[![Stars](https://img.shields.io/github/stars/WhiteAssassins/dnd-utilities?style=social)](https://github.com/WhiteAssassins/dnd-utilities/stargazers)
+[![Forks](https://img.shields.io/github/forks/WhiteAssassins/dnd-utilities?style=social)](https://github.com/WhiteAssassins/dnd-utilities/network/members)
+[![Issues](https://img.shields.io/github/issues/WhiteAssassins/dnd-utilities)](https://github.com/WhiteAssassins/dnd-utilities/issues)
+
 Mobile-first fantasy utility for Dungeons & Dragons, Baldur's Gate, and other tabletop or RPG sessions.
 
-## Overview
+## Why It Stands Out
 
-D20 Tavern is a lightweight front-end project focused on quick table decisions:
-
-- Solo `d20` rolls
-- Multiplayer roll comparison
-- Tie detection
-- Short session history
-- Responsive mobile-first UI
+- Built mobile-first for real session use, not just desktop demos
+- Fast `d20` rolling with multiplayer comparison
 - Built-in language switching for `es`, `en`, and `pt-BR`
-
-The project is intentionally simple right now so it can grow into a broader suite of RPG utilities.
+- Visual direction designed to feel more like a fantasy tool than a generic app
+- Framework-free and easy to deploy on GitHub Pages
 
 ## Features
 
 ### Current
 
-- Roll a single `d20`
-- Add multiple players and compare results
-- Highlight critical rolls and fumbles
-- Keep a short in-session roll log
-- Switch interface language without reloading
+- Solo `d20` rolls
+- Multiplayer roll comparison
+- Tie detection
+- Critical and fumble highlights
+- Short session history
+- Language switching without reload
 
 ### Planned
 
 - More dice: `d4`, `d6`, `d8`, `d10`, `d12`, `d100`
 - Initiative tracker
-- HP and effect trackers
+- HP and temporary effect trackers
 - Random decision tools
 
-## Tech Stack
-
-- `HTML`
-- `CSS`
-- `JavaScript`
-- Google Fonts
-
-No framework or build step is required.
-
-## Getting Started
+## Quick Start
 
 1. Clone the repository.
 2. Open `index.html` in your browser.
 
-This structure is already compatible with static hosting such as GitHub Pages.
+This project is static and works well with GitHub Pages.
 
 ## Project Structure
 
 ```text
 .
+|-- .github/
+|-- assets/
 |-- index.html
 |-- styles.css
 |-- app.js
+|-- CONTRIBUTING.md
+|-- CODE_OF_CONDUCT.md
+|-- LICENSE
 `-- README.md
 ```
 
 ## Internationalization
 
-The interface currently supports:
+Supported languages:
 
 - Spanish (`es`)
 - English (`en`)
 - Portuguese Brazil (`pt-BR`)
 
-Translations are handled directly in `app.js`, including:
+Translations live in `app.js` and cover:
 
-- Static interface copy
+- Static UI text
 - Dynamic result messages
 - History entries
 - Player labels and placeholders
 - Document title and meta description
 
-## Public Repository Notes
+## Contributing
 
-If you plan to keep this repository public on GitHub, strong next steps would be:
+Contributions are welcome.
 
-- Add a screenshot or short GIF to the README
-- Publish the site with GitHub Pages
-- Add an open source license
-- Add a favicon and social preview image
-- Split translations into separate files if the project grows
+- Read [CONTRIBUTING.md](CONTRIBUTING.md)
+- Use the GitHub issue templates for bugs and ideas
+- Follow [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)
+
+Good first contributions:
+
+- Add more dice modes
+- Improve accessibility and keyboard support
+- Add animations for multiplayer results
+- Prepare a GitHub Pages deployment workflow
+- Create screenshots or GIFs for the README
+
+## Public Repo Growth Ideas
+
+These changes help the repo feel more alive and more shareable:
+
+- Visual banner at the top of the README
+- Clear badges for stars, forks, issues, and license
+- Contributing guide and pull request template
+- Issue templates for bug reports and feature requests
+- Explicit open source license
 
 ## License
 
-No license has been added yet.
+Released under the [MIT License](LICENSE).
 
-If you want the repository to be reusable by others, the next recommended step is adding a license such as `MIT`.
+Copyright (c) 2026 Christopher David Alberto Roque

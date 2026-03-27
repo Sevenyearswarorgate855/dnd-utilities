@@ -414,6 +414,24 @@ h3 {
   margin-top: 18px;
 }
 
+.site-footer {
+  margin-top: 18px;
+  padding: 18px 6px 6px;
+  color: var(--muted);
+}
+
+.site-footer__copy,
+.site-footer__meta {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.site-footer__meta {
+  margin-top: 4px;
+  opacity: 0.9;
+}
+
 .section-heading {
   margin-bottom: 14px;
 }
